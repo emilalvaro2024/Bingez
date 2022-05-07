@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Database connection
 mongoose.connect('mongodb://127.0.0.1:27017/m_site', function () {
-    console.log("connection successfull")
+    console.log("connection successful")
 });
 
 let videoDetailsSchema = new mongoose.Schema({
