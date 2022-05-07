@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#151515"/>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/static/css/nav-sidebar.css"/>
+    <link rel="stylesheet" href="/static/css/moviepage.css"/>
+    {{#if seriesCss}}
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+        <link rel="stylesheet" href="/static/css/accordion.css"/>
+        <link rel="stylesheet" href="/static/css/series-season.css"/>
+    {{/if}}
+
+    <style>
+        .sec-1:before {
+            background: linear-gradient(
+                    to right,
+                    rgba(13, 15, 20, 1) 15%,
+                    rgba(5.1%, 5.88%, 7.84%, 0.84) 48%
+            ),
+            url("/static/img/{{backdrop_img}}") 200px center/cover no-repeat;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .sec-1::before {
+                background: linear-gradient(
+                        to bottom,
+                        rgba(13, 15, 20, 1) 22%,
+                        rgba(5.1%, 5.88%, 7.84%, 0.84) 60%
+                ),
+                url(/static/img/{{backdrop_img}}) center 80px / cover no-repeat;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .sec-1::before {
+                background: linear-gradient(
+                        to bottom,
+                        rgb(13 15 20) 22%,
+                        rgba(5.1%, 5.88%, 7.84%, 0.84) 60%
+                ),
+                url(/static/img/{{backdrop_img}}) center 200px / cover no-repeat;
+            }
+        }
+    </style>
+
+    <!-- smooth-scrollbar -->
+    <script defer src="/static/js/smooth-scrollbar.js"></script>
+
+    <title>{{title}}</title>
+</head>
+
+<body data-scrollbar>
+
+{{{body}}}
+
+<!-- custom script -->
+<script defer src="/static/js/scroll_sidebar.js"></script>
+<script defer src="/static/js/nav_searchbar.js"></script>
+{{#if seriesCss}}
+    <script defer src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script defer src="/static/js/accordion.js"></script>
+{{/if}}
+</body>
+</html>

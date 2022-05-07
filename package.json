@@ -1,0 +1,10 @@
+{
+  "name": "movie-website",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.5",
+    "mongoose": "^6.3.2",
+    "nodemon": "^2.0.16"
+  }
+}

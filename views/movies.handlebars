@@ -1,0 +1,50 @@
+{{> nav_sidebar}}
+
+<div class="container">
+    <div class="content-container">
+        <div class="allmovies">
+            <div class="heading">
+                <h2>Popular {{type}}</h2>
+                {{#if showGenre}}
+                    <div class="genres">
+                        <label class="select" for="slct">
+                            <select id="slct" required="required">
+                                <option value="" disabled="disabled" selected="selected">Select Genre</option>
+                                {{#if showAllGenre}}
+                                    <option value="all">All</option>
+                                {{/if}}
+                                {{#each genres}}
+                                    <option value="{{this.slug}}">{{this.genre}}</option>
+                                {{/each}}
+                            </select>
+                            <svg>
+                                <use xlink:href="#select-arrow-down"></use>
+                            </svg>
+                        </label>
+                        <!-- SVG Sprites-->
+                        <svg class="sprites">
+                            <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                                <polyline points="1 1 5 5 9 1"></polyline>
+                            </symbol>
+                        </svg>
+                    </div>
+                {{/if}}
+            </div>
+            <div class="list">
+                {{#each items}}
+                    <div class="item">
+                        <a href="/{{this.type}}/{{this.slug}}">
+                            <img src="/static/img/{{this.image}}" alt="{{this.title}}" />
+                        </a>
+                        <h4><a href="/{{this.type}}/{{this.slug}}">{{this.title}}</a></h4>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="pagination">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/movies.js"></script>

@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  position: sticky;
+  z-index: 2;
+  top: 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  color: white;
+  font-family: "Lacquer", cursive;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  font-size: 30px;
+  color: #4dbf00;
+  font-family: "Rubik", sans-serif;
+}
+
+.menu-container {
+  flex: 4;
+}
+
+.menu-list {
+  display: flex;
+  list-style: none;
+}
+
+.menu-list-item {
+  margin-right: 30px;
+  letter-spacing: 0.04rem;
+  font-size: 19px;
+}
+
+li.menu-list-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*.menu-list-item.active {
+  font-weight: bold;
+}*/
+
+.right-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* .profile-text-container {
+    margin: 0 20px;
+  }
+  
+  .profile-picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  } */
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.toggle-icon {
+  color: goldenrod;
+}
+
+.toggle-ball {
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  position: absolute;
+  right: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s ease all;
+}
+
+.toggle.active {
+  background-color: black;
+}
+
+.toggle-ball.active {
+  background-color: white;
+  transform: translateX(-20px);
+}
+
+/* search bar css */
+.search {
+  position: relative;
+}
+
+.searchInput {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  filter: drop-shadow(0 1px #ffffff);
+}
+
+.searchInput:after {
+  content: "";
+  background: white;
+  width: 2px;
+  height: 12px;
+  position: absolute;
+  top: 27px;
+  right: -0.3px;
+  transform: rotate(135deg);
+}
+
+.searchInput > input {
+  position: relative;
+  top: -1px;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: transparent;
+  width: 0;
+  height: 0;
+  padding: 15px;
+  border: solid 0.1rem white;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.searchInput > input::placeholder {
+  color: #efefef;
+  font-size: 15px;
+  letter-spacing: 2px;
+  opacity: 0;
+  font-family: "Lacquer", cursive;
+  transition: opacity 150ms ease-out;
+}
+
+.searchInput > input:focus::placeholder,
+.searchInput > input:hover::placeholder {
+  opacity: 1;
+}
+
+.searchInput > input:focus,
+.searchInput > input:hover,
+.searchInput > input:not(:placeholder-shown) {
+  width: 250px;
+}
+
+.searchInput.active:after {
+  background: black;
+}
+
+.searchInput.active > input {
+  color: black;
+  border: solid 3px black;
+}
+
+.searchInput.active > input::placeholder {
+  color: black;
+}
+
+.searchLiveResult {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.75rem);
+  width: 185px;
+  font-size: 16px;
+  background-color: black;
+  padding: 0.75rem;
+  /* border: 1px solid rgb(189 179 179 / 84%); */
+  border-radius: 7px;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.98);
+  display: none;
+  opacity: 0;
+  /*cursor: pointer;*/
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+/*.searchLiveResult.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}*/
+
+.searchResults {
+  display: flex;
+  align-items: center;
+  /*justify-content: space-around;*/
+}
+
+.searchResults:not(:first-child) {
+  padding-top: 0.75rem;
+}
+
+.searchResults:not(:last-child) {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgb(44 44 44);
+}
+
+.searchResults a {
+  color: white;
+  text-decoration: none;
+}
+
+.searchResults a:last-child {
+  margin-left: 15px;
+}
+
+.searchResults img {
+  font-size: 14px;
+  width: auto;
+  height: 57px;
+  border-radius: 7px;
+}
+
+.searchResults span {
+  opacity: 0.6;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+/* sidebar */
+.openbtn {
+  /* The button used to open the sidebar */
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #4dbf00;
+  color: white;
+  padding: 5px 11px 7px 11px;
+  border: none;
+  border-radius: 10px;
+  opacity: 1;
+  transition: opacity 1s ease-in, left 1s ease-in-out;
+}
+
+.openbtn:hover,
+.openbtn:focus {
+  background-color: #3d9900;
+}
+
+.openbtn:active {
+  background-color: brown;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 0.5s ease-in-out; /* If you want a transition effect */
+  padding: 10px;
+  position: fixed;
+  z-index: 2;
+  top: -4.52px;
+  left: 2px;
+  display: none;
+}
+
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #151515; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 50px; /* Place content 60px from the top */
+  margin-top: 50px;
+  transition: width 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover,
+.sidebar a:focus {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 6px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  border: none;
+  color: #818181;
+  background-color: #151515;
+}
+
+.sidebar .closebtn:hover,
+.sidebar .closebtn:focus {
+  color: #f1f1f1;
+}
+
+.transition-from-left {
+  position: relative;
+  /* animation: animatefromleft 1s; */
+  left: 0;
+  opacity: 1;
+}
+
+.transition-to-left {
+  position: relative;
+  /* animation: animatetoleft 1s; */
+  left: -300px;
+  opacity: 0;
+}
+
+/* max width 1200px */
+@media only screen and (max-width: 1200px) {
+  .menu-container {
+    flex: 2;
+    margin-left: 28px;
+  }
+
+  .menu-list-item {
+    margin-right: 25px;
+  }
+
+  .right-container {
+    flex: 3;
+  }
+}
+
+/* max width 768px */
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0 35px;
+  }
+
+  .menu-container {
+    flex: 2 2;
+    /* margin-left: 0; */
+  }
+
+  .menu-list-item {
+    margin-right: 12px;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+  }
+
+  .searchInput {
+    margin-right: 12px;
+  }
+
+  .searchInput > input:focus,
+  .searchInput > input:hover,
+  .searchInput > input:not(:placeholder-shown) {
+    width: 153px;
+  }
+}
+
+/* max width 600px */
+@media only screen and (max-width: 600px) {
+  .navbar-container {
+    padding-left: 60px;
+    transition: padding-left 1s ease-in-out;
+  }
+
+  #main {
+    display: block;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .searchInput {
+    margin-right: 15px;
+  }
+
+  .searchInput > input:focus,
+  .searchInput > input:hover,
+  .searchInput > input:not(:placeholder-shown) {
+    width: 192px;
+  }
+}
+
+/* max width 480px */
+@media only screen and (max-width: 480px) {
+  .navbar-container {
+    padding: 0 15px 0 60px;
+  }
+
+  .logo {
+    font-size: 29px;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .right-container {
+    flex: 3;
+  }
+
+  #main {
+    display: block;
+  }
+
+  .searchInput {
+    margin-right: 10px;
+  }
+
+  .searchInput > input:focus,
+  .searchInput > input:hover,
+  .searchInput > input:not(:placeholder-shown) {
+    width: 105px;
+  }
+
+  .searchLiveResult {
+    left: -25%;
+  }
+}

@@ -1,0 +1,29 @@
+{{> nav_sidebar}}
+
+<div class="container">
+    <div class="content-container">
+        <section class="details">
+            <div class="image"><img src="/static/img/{{image}}" alt="tom hardy"></div>
+            <div class="actor-details">
+                <section class="name">
+                    <h1>{{name}}</h1>
+                </section>
+                <section class="movies">
+                    <h3>Known For</h3>
+                    <div class="known-for-list">
+                        <ul class="list">
+                            {{#each movies}}
+                                <li>
+                                    <a href="/movie/{{this.link}}">
+                                        <img src="/static/img/{{this.image}}" alt="{{this.image}}" />
+                                    </a>
+                                    <h4><a href="/movie/{{this.link}}">{{this.title}}</a></h4>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>

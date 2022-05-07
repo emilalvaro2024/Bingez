@@ -1,0 +1,67 @@
+{{> nav_sidebar}}
+
+<div class="container">
+    <div class="content-container">
+        <div class="sec-1">
+            <div>
+                <div class="featured-image">
+                    <img src="/static/img/{{main_image}}" alt="{{title}} image"/>
+                </div>
+                <div class="info">
+                    <div class="title_genre">
+                        <h1 class="title">{{title}} ({{release_year}})</h1>
+                        <ul class="genr">
+                            <li>
+                                {{#each genres}}
+                                    <a href="/movie?genre={{this.slug}}">{{this.genre}}</a>,
+                                {{/each}}
+                            </li>
+                            <li>{{time_length}}</li>
+                        </ul>
+                    </div>
+                    <div class="overview">
+                        <h3 class="inOneLine">{{tagline}}</h3>
+                        <h3 class="heading">Overview</h3>
+                        <p class="overview-text">
+                            {{storyline}}
+                        </p>
+                        <h3 class="heading">Cast</h3>
+                        <div class="cast-list">
+                            <ul class="actors_actress">
+                                {{#each actors}}
+                                    <li>
+                                        <img src="/static/img/{{this.image}}" alt="{{this.image}}"/>
+                                        <a href="/actor/{{this.slug}}">
+                                            <h4 class="actor-name">{{this.name}}</h4>
+                                        </a>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="watchbtn">
+                        <a
+                                href="{{nextPage}}"
+                                target="_blank"
+                                rel="noopener noreferrer external"
+                        ><img class="play" src="/static/img/play1.png" alt="play"/> Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-2">
+            <h2 class="recommended">Recommendations</h2>
+            <div class="recommendedlist">
+                {{#each recommendations}}
+                    <div class="item">
+                        <a href="/movie/{{this.slug}}">
+                            <img src="/static/img/{{this.image}}" alt="{{this.image}}"/>
+                        </a>
+                        <h4><a href="{{this.slug}}">{{this.title}}</a></h4>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

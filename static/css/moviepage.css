@@ -1,0 +1,383 @@
+:root {
+  --img-border-radius: 7px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background-color: #151515;
+}
+
+.scroll-content {
+  overflow-x: hidden;
+}
+
+.content-container {
+  overflow-x: hidden;
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.sec-1 {
+  height: 96vh;
+  display: flex;
+  align-items: center;
+}
+
+.sec-1 > div {
+  color: white;
+  display: flex;
+  padding: 44px 80px;
+  width: 100vw;
+   overflow-x: hidden;
+  align-items: center;
+  /* position: relative; */
+  /* height: 85vh; */
+}
+
+.sec-1::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  /* opacity: 0.4; */
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.featured-image {
+  margin-right: 20px;
+}
+
+.featured-image img {
+  /* margin: 16px; */
+  height: auto;
+  width: 24vw;
+  object-fit: cover;
+  border-radius: var(--img-border-radius);
+}
+
+.info {
+  padding: 8px 52px;
+  overflow-x: hidden;
+}
+
+.title_genre {
+  margin-bottom: 12px;
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: 35px;
+}
+
+.genr {
+  display: flex;
+}
+
+.genr li {
+  margin: 4px 18px;
+}
+
+.genr li a {
+  text-decoration: none;
+  color: white;
+}
+
+.overview {
+  margin-bottom: 35px;
+}
+
+.overview h3.heading {
+  margin-bottom: 5px;
+}
+
+.inOneLine {
+  font-size: 21px;
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.overview-text {
+  margin-bottom: 28px;
+}
+
+div.cast-list {
+  overflow-x: scroll;
+}
+
+div.cast-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+div.cast-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+div.cast-list::-webkit-scrollbar-thumb {
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+}
+
+ul.actors_actress {
+  display: flex;
+  padding: 0 0 15px 15px;
+  width: fit-content;
+}
+
+ul.actors_actress li {
+  list-style: none;
+  margin-inline: 20px;
+  border: none;
+  outline: none;
+  border-radius: 79%;
+  overflow: hidden;
+  height: 100px;
+  width: 82px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
+}
+
+ul.actors_actress img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+}
+
+ul.actors_actress a {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.actor-name {
+  transform: translateY(0);
+  font-size: 16px;
+  text-align: center;
+  color: black;
+  background: aliceblue;
+  height: 60px;
+  padding-top: 2px;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+ul.actors_actress li:hover img {
+  transform: translateY(-20px);
+  opacity: 0.7;
+}
+
+ul.actors_actress li:hover .actor-name {
+  visibility: visible;
+  transform: translateY(-57px);
+}
+
+/* .watchbtn {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.watchbtn a {
+  text-decoration: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  font-size: 19px;
+  white-space: nowrap;
+}
+
+.watchbtn .play {
+  filter: invert(1);
+  height: 60px;
+  width: 60px;
+  margin-right: 5px;
+}
+
+.sec-2 {
+  color: rgb(255, 255, 255);
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.recommended {
+  margin-block: 20px 30px;
+}
+
+.recommendedlist {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-inline: 10px;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  overflow: scroll hidden;
+}
+
+.recommendedlist::-webkit-scrollbar {
+  height: 8px;
+}
+
+.recommendedlist::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.recommendedlist::-webkit-scrollbar-thumb {
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+}
+
+.item {
+  margin-right: 20px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}
+
+.item img {
+  object-fit: cover;
+  width: auto;
+  height: 218px;
+  filter: drop-shadow(2px 4px 6px black);
+  border-radius: var(--img-border-radius);
+}
+
+.item h4 {
+  width: fit-content;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .info {
+    padding: 8px 2px 8px 20px;
+  }
+
+  .title_genre {
+    margin-bottom: 1.2vh;
+  }
+
+  .overview {
+    margin-bottom: 3.5vh;
+  }
+
+  .inOneLine {
+    margin-bottom: 1.2vh;
+  }
+
+  .overview h3.heading {
+    margin-bottom: 0.8vh;
+  }
+
+  .overview-text {
+    margin-bottom: 2vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sec-1 > div {
+    flex-direction: column;
+  }
+
+  .featured-image {
+    margin: 0 0 3vh;
+  }
+
+  .featured-image img {
+    width: 31vw;
+  }
+
+  .info {
+    padding: 0;
+    padding-block: 6px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .genr {
+    justify-content: center;
+  }
+
+  div.cast-list {
+    display: flex;
+    justify-content: center;
+  }
+
+  ul.actors_actress {
+    padding-inline: 20px;
+    /*justify-content: center;*/
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .sec-1 {
+    height: 105vh;
+  }
+
+  .sec-1::before {
+    height: 110vh;
+  }
+
+  .sec-1 > div {
+    padding: 44px 50px;
+  }
+
+  .featured-image {
+    margin: 0 0 2vh;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .title_genre {
+    margin-bottom: 0.8vh;
+  }
+
+  .overview {
+    margin-bottom: 1vh;
+  }
+
+  .inOneLine {
+    margin-bottom: 0.8vh;
+  }
+
+  .overview h3.heading {
+    margin-bottom: 0.6vh;
+  }
+
+  .overview-text {
+    margin-bottom: 1vh;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .sec-1 {
+    height: 131vh;
+    display: block;
+    align-items: normal;
+  }
+
+  .sec-1::before {
+    height: 139vh;
+  }
+
+  .sec-1 > div {
+    padding: 24px 34px;
+    width: auto;
+  }
+
+  .featured-image img {
+    width: 45vw;
+  }
+}

@@ -1,0 +1,74 @@
+.accordion {
+    border: none;
+    outline: none;
+}
+
+.accordion dt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: transparent;
+    padding: 10px;
+    color: white;
+    /*border: 1px solid #EAEAEA;*/
+    /*border-radius: 7px;*/
+    outline: none;
+    /* border-top: 1px solid #ff0000; */
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.accordion dt:first-of-type {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.accordion dt:last-of-type {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.accordion dt.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.accordion dt:hover {
+    color: mediumaquamarine;
+}
+
+.accordion dt i {
+    float: right;
+    transition: 0.2s;
+    opacity: 0.3;
+}
+
+.accordion dd {
+    display: none;
+    /*border: 1px solid #EAEAEA;*/
+    padding: 10px;
+    margin: 0;
+}
+
+.accordion dd:last-of-type {
+    border-radius: 0 0 7px 7px;
+}
+
+dt.expanded i {
+    transform: rotate(90deg);
+    opacity: 1;
+}
+
+.content {
+    font-family: "Helvetica", sans-serif;
+    width: 550px;
+    margin: 0 auto;
+}
+
+dl.viewSeasons > dd dd dd > * {
+    padding-inline: 15px;
+    margin-block: 15px;
+}

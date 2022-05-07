@@ -1,0 +1,114 @@
+{{> nav_sidebar}}
+
+<div class="container">
+    <div class="content-container">
+        <div class="featured-content featured-1">
+            <img class="featured-title" src="/static/img/{{ft_image_1}}" alt="{{ft_image_1}}" />
+            <p class="featured-desc">
+                {{ft_desc_1}}
+            </p>
+            <button class="featured-button">WATCH</button>
+        </div>
+        <div class="movie-list-container" id="movie">
+            <div class="h1">
+                <h1 class="movie-list-title">Popular</h1>
+                <a class="all" href="/movie" title="Show all">Show all</a>
+            </div>
+            <div id="splide1" class="splide">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {{#each movies}}
+                            <div class="splide__slide">
+                                <img class="movie-list-item-img" src="/static/img/{{this.image}}" alt="{{this.image}}" />
+                                <span class="movie-list-item-title">{{this.title}}</span>
+                                <p class="movie-list-item-desc">
+                                    {{this.short_desc}} ...
+                                </p>
+                                <div class="movie-list-item-button-div">
+                                    <a href="/{{this.type}}/{{this.slug}}">Watch</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie-list-container" id="latest">
+            <div class="h1">
+                <h1 class="movie-list-title">Latest</h1>
+            </div>
+            <div id="splide2" class="splide">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {{#each latest}}
+                            <div class="splide__slide">
+                                <img class="movie-list-item-img" src="/static/img/{{this.image}}" alt="{{this.image}}" />
+                                <span class="movie-list-item-title">{{this.title}}</span>
+                                <p class="movie-list-item-desc">
+                                    {{this.short_desc}} ...
+                                </p>
+                                <div class="movie-list-item-button-div">
+                                    <a href="/{{this.type}}/{{this.slug}}">Watch</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="featured-content featured-2">
+            <img class="featured-title" src="/static/img/{{ft_image_2}}" alt="{{ft_image_2}}" />
+            <p class="featured-desc">
+                {{ft_desc_2}}
+            </p>
+            <button class="featured-button">WATCH</button>
+        </div>
+        <div class="movie-list-container" id="trending">
+            <div class="h1">
+                <h1 class="movie-list-title">Trending</h1>
+            </div>
+            <div id="splide3" class="splide">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {{#each trending}}
+                            <div class="splide__slide">
+                                <img class="movie-list-item-img" src="/static/img/{{this.image}}" alt="{{this.image}}" />
+                                <span class="movie-list-item-title">{{this.title}}</span>
+                                <p class="movie-list-item-desc">
+                                    {{this.short_desc}} ...
+                                </p>
+                                <div class="movie-list-item-button-div">
+                                    <a href="/{{this.type}}/{{this.slug}}">Watch</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie-list-container" id="series">
+            <div class="h1">
+                <h1 class="movie-list-title">Web Series</h1>
+                <a class="all" href="/series" title="Show all">Show all</a>
+            </div>
+            <div id="splide4" class="splide">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {{#each series}}
+                            <div class="splide__slide">
+                                <img class="movie-list-item-img" src="/static/img/{{this.image}}" alt="{{this.image}}" />
+                                <span class="movie-list-item-title">{{this.title}}</span>
+                                <p class="movie-list-item-desc">
+                                    {{this.short_desc}} ...
+                                </p>
+                                <div class="movie-list-item-button-div">
+                                    <a href="/{{this.type}}/{{this.slug}}">Watch</a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
