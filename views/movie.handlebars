@@ -13,7 +13,7 @@
                         <ul class="genr">
                             <li>
                                 {{#each genres}}
-                                    <a href="/movie?genre={{this.slug}}">{{this.genre}}</a>,
+                                    <a href="/movie?genre={{this.slug}}">{{this.genre}}</a>{{#unless @last}}, {{/unless}}
                                 {{/each}}
                             </li>
                             <li>{{time_length}}</li>

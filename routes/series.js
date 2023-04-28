@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const mong_con = require('../mongoose/mongoose')
-const v_details = mong_con.videosDetails
-const genres = mong_con.genres
+const mongoose_con = require('../mongoose/mongoose')
+const v_details = mongoose_con.videosDetails
+const genres = mongoose_con.genres
 
 const perPage = 20;
 

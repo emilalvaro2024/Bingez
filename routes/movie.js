@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const mong_con = require('../mongoose/mongoose')
-const v_details = mong_con.videosDetails
-const genres = mong_con.genres
+const mongoose_con = require('../mongoose/mongoose')
+const v_details = mongoose_con.videosDetails
+const genres = mongoose_con.genres
 
 const perPage = 20;
 
@@ -28,22 +28,23 @@ router.get(['/', '/page/:pageNum?'], async function (req, res) {
 
     //genre queries
     const genreQuery = req.query.genre;
-    // console.log(genreQuery)
+    // console.log(genreQuery);
     /*const filteredMoviesList = details.movies.filter(function (m) {
         return m.genres.find(function (g) {
             return g.slug === genreQuery || genreQuery === undefined || genreQuery === ""
         })
     })*/
-    let inGenres = await genres.findOne({slug: genreQuery}).lean()
+    let inGenres = await genres.findOne({slug: genreQuery}).lean();
     // console.log(inGenres)
-    let filteredMoviesList
+    let filteredMoviesList;
     if (inGenres !== null) {
-        filteredMoviesList = await v_details.find({type:"movie", "genres.slug": genreQuery}).lean()
+        filteredMoviesList = await v_details.find({type:"movie", "genres.slug": genreQuery}).lean();
     }
-    else if (genreQuery === undefined || genreQuery === "") {
-        filteredMoviesList = await v_details.find({type:"movie"}).lean()
-    }else {
-        res.status(404).send("Bad Request")
+    /*else if (genreQuery === undefined || genreQuery === "") {
+        filteredMoviesList = await v_details.find({type:"movie"}).lean();
+    }*/else {
+        filteredMoviesList = await v_details.find({type:"movie"}).lean();
+        // res.status(404).send("Bad Request");
     }
     // console.log(filteredMoviesList)
     let showGenre = true;
@@ -55,12 +56,12 @@ router.get(['/', '/page/:pageNum?'], async function (req, res) {
 
     /*const t = filteredMoviesList.count()
     console.log(t)*/
-    let genre = await genres.find({}).lean()
+    let genre = await genres.find({}).lean();
     const total = filteredMoviesList.length;
     const pages = Math.ceil(total/perPage);
     if ((!isNaN(page) && pageNum <= pages) || page === undefined) {
-        if (isNaN(pageNum)) pageNum = 1
-        if (pageNum > 1) showGenre = false
+        if (isNaN(pageNum)) pageNum = 1;
+        if (pageNum > 1) showGenre = false;
         const loadFrom = (pageNum-1)*perPage;
         const loadTo = (pageNum*perPage)-1;
         res.render('movies', {
@@ -73,7 +74,7 @@ router.get(['/', '/page/:pageNum?'], async function (req, res) {
             showAllGenre,
         })
     } else {
-        res.send("Page not found").status(404)
+        res.send("Page not found").status(404);
     }
 })
 
@@ -83,6 +84,7 @@ router.get('/:pageLink', async function (req, res) {
     // console.log(movieSlug)
     if (movieSlug !== null) {
         // console.log(movieSlug)
+        // console.log(host);
         res.render('movie', {
             title: movieSlug.title,
             main_image: movieSlug.image,
@@ -101,9 +103,4 @@ router.get('/:pageLink', async function (req, res) {
     }
 })
 
-// define the about route
-/*router.get('/about', function (req, res) {
-    res.send('About birds')
-})*/
-
-module.exports = router
+module.exports = router;

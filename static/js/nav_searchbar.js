@@ -99,6 +99,15 @@ function closeNav() {
     document.querySelector(".openbtn").classList.add("transition-from-left");
 }
 
+// scroll to the element it is homepage else redirect to homepage with element id query parameter
+const scrollTo = elem_id => {
+    if (window.location.pathname !== '/'){
+        window.location.replace(window.location.origin + "?scrollto=" + elem_id);
+        return;
+    }
+    scrollbar.scrollIntoView(document.getElementById(`${elem_id}`));
+}
+
 let nav_elem = document.querySelector(".menu-list").children;
 for (let i of nav_elem) {
     if (i !== nav_elem[0]) {
@@ -106,7 +115,8 @@ for (let i of nav_elem) {
             e.preventDefault()
             let elem_id = i.firstElementChild.href.split("#")[1]
             // console.log(elem_id)
-            scrollbar.scrollIntoView(document.getElementById(`${elem_id}`))
+            scrollTo(elem_id)
+            // scrollbar.scrollIntoView(document.getElementById(`${elem_id}`))
         })
     }
 }
@@ -120,8 +130,20 @@ for (let i of side_elem) {
             // console.log(elem_id)
             closeNav()
             setTimeout(function () {
-                scrollbar.scrollIntoView(document.getElementById(`${elem_id}`))
+                scrollTo(elem_id);
+                // scrollbar.scrollIntoView(document.getElementById(`${elem_id}`))
             }, 500)
         })
     }
 }
+
+// get element id from search param and scroll to the view
+(function (){
+    const urlParams = new URLSearchParams(window.location.search);
+    // console.log(urlParams);
+    if (!urlParams.has('scrollto')){
+        return;
+    }
+    setTimeout(() => scrollTo(urlParams.get('scrollto')), 200);
+    // scrollTo(urlParams.get('scrollto'));
+})();

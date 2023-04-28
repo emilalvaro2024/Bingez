@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const mong_con = require('../mongoose/mongoose')
+const mongoose_con = require('../mongoose/mongoose');
 
-const v_details = mong_con.videosDetails
-const ft_details = mong_con.featuredDetails
+const v_details = mongoose_con.videosDetails
+const ft_details = mongoose_con.featuredDetails
 
 // middleware that is specific to this router
 /*router.use(function timeLog (req, res, next) {

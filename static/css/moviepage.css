@@ -247,7 +247,7 @@ ul.actors_actress li:hover .actor-name {
 .item img {
   object-fit: cover;
   width: auto;
-  height: 218px;
+  height: 155px;
   filter: drop-shadow(2px 4px 6px black);
   border-radius: var(--img-border-radius);
 }

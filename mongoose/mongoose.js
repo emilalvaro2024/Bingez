@@ -1,8 +1,12 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
+mongoose.set('strictQuery', false);
+
 // Database connection
-mongoose.connect('mongodb://127.0.0.1:27017/m_site', function () {
-    console.log("connection successful")
+// mvst_data @ admin_mvst = mAfNP7BO5QTroFqV
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.awfkby1.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`, function () {
+    console.log("connection successful");
 });
 
 let videoDetailsSchema = new mongoose.Schema({
@@ -84,3 +88,4 @@ module.exports = {
     genres: genre,
     actors: actor,
 }
+
