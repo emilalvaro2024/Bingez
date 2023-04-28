@@ -3,7 +3,7 @@ const express = require('express'),
     app = express(),
     expHbs = require('express-handlebars'),
     path = require('path'),
-    port = 8000,
+    port = normalizePort(process.env.PORT || '3000'),
     home = require('./routes/home'),
     movie = require('./routes/movie'),
     series = require('./routes/series'),
@@ -29,3 +29,19 @@ app.engine('handlebars', expHbs.engine())
     if (err) throw err;
     console.log(`listening on port ${port}`)
 })
+
+function normalizePort(val) {
+    let port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
