@@ -65,6 +65,14 @@ li.menu-list-item a {
   padding: 10px 5px;
 }
 
+.navbar-container.active li.menu-list-item a{
+  color: black;
+}
+
+.navbar-container.active li.menu-list-item a:after {
+  background: black;
+}
+
 li.menu-list-item a,
 li.menu-list-item a:after,
 li.menu-list-item a:before {
