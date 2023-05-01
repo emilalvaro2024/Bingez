@@ -16,10 +16,16 @@ const express = require('express'),
 
 // view engine is handlebars
 app.engine('handlebars', expHbs.engine())
-    .set('view engine', 'handlebars')
+    .set('view engine', 'handlebars');
+
+let hbs = expHbs.create({});
+
+hbs.handlebars.registerHelper('ifCond', function(v1, v2) {
+    return v1 === v2;
+});
 
 // serve static files
-    .use(logger('dev'))
+app.use(logger('dev'))
     .use(express.json())
     .use(express.urlencoded({ extended: false }))
     .use(cookieParser())

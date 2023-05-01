@@ -24,6 +24,16 @@
             flex-direction: column;
             height: -webkit-fill-available;
         }
+        {{#if (ifCond type "Series")}}
+        .menu-list-item:nth-child(3) {
+            font-weight: bold;
+        }
+        {{/if}}
+        {{#if (ifCond type "Movies")}}
+        .menu-list-item:nth-child(2) {
+            font-weight: bold;
+        }
+        {{/if}}
     </style>
 </head>
 
