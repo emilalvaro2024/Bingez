@@ -23,6 +23,10 @@ Scrollbar.initAll({
     document.querySelector(".navbar-container").style.paddingLeft = "15px";
     document.querySelector(".openbtn").classList.remove("transition-from-left");
     document.querySelector(".openbtn").classList.add("transition-to-left");
+      if(window.location.pathname === '/') {
+          document.querySelectorAll(".featured-content")[0].style.height = "76vh";
+          document.querySelectorAll(".featured-content")[1].style.height = "76vh";
+      }
   }
   
   /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
@@ -33,5 +37,9 @@ Scrollbar.initAll({
     document.querySelector(".navbar-container").style.paddingLeft = "60px";
     document.querySelector(".openbtn").classList.remove("transition-to-left");
     document.querySelector(".openbtn").classList.add("transition-from-left");
+      if(window.location.pathname === '/'){
+          document.querySelectorAll(".featured-content")[0].style = "";
+          document.querySelectorAll(".featured-content")[1].style = "";
+      }
   }
   

@@ -60,7 +60,7 @@ inputField.addEventListener("input", function () {
 //Toggle dark and light theme
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
-    ".container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle,.featured-content,.search"
+    ".container,.h1,.heading,.navbar-container,.sidebar,.left-menu-icon,.toggle,.featured-content,.search"
 );
 // let slidepgnn = document.querySelectorAll("ul.splide__pagination li button.splide__pagination__page");
 
@@ -76,28 +76,32 @@ ball.addEventListener("click", () => {
 
 //sidebar
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-function openNav() {
+/*function openNav() {
     document.getElementById("mySidebar").style.width = "150px";
     // document.getElementById("main").style.marginLeft = "250px";
     document.querySelector(".content-container").style.marginLeft = "150px";
     document.querySelector(".navbar-container").style.paddingLeft = "15px";
-    document.querySelectorAll(".featured-content")[0].style.height = "76vh";
-    document.querySelectorAll(".featured-content")[1].style.height = "76vh";
     document.querySelector(".openbtn").classList.remove("transition-from-left");
     document.querySelector(".openbtn").classList.add("transition-to-left");
+    if(window.location.pathname === '/') {
+        document.querySelectorAll(".featured-content")[0].style.height = "76vh";
+        document.querySelectorAll(".featured-content")[1].style.height = "76vh";
+    }
 }
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+/!* Set the width of the sidebar to 0 and the left margin of the page content to 0 *!/
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     // document.getElementById("main").style.marginLeft = "0";
     document.querySelector(".content-container").style.marginLeft = "0";
     document.querySelector(".navbar-container").style.paddingLeft = "60px";
-    document.querySelectorAll(".featured-content")[0].style = "";
-    document.querySelectorAll(".featured-content")[1].style = "";
     document.querySelector(".openbtn").classList.remove("transition-to-left");
     document.querySelector(".openbtn").classList.add("transition-from-left");
-}
+    if(window.location.pathname === '/'){
+        document.querySelectorAll(".featured-content")[0].style = "";
+        document.querySelectorAll(".featured-content")[1].style = "";
+    }
+}*/
 
 // scroll to the element it is homepage else redirect to homepage with element id query parameter
 const scrollTo = elem_id => {

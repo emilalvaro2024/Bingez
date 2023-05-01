@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
 
+:root{
+  --light-color: #f2ebeb;
+}
+
 .navbar {
   width: 100%;
+  min-height: 50px;
   height: 50px;
   background-color: black;
   position: sticky;
   z-index: 2;
   top: 0;
+  flex: 0 1 50px;
 }
 
 .navbar-container {
@@ -16,6 +22,11 @@
   height: 100%;
   color: white;
   font-family: "Lacquer", cursive;
+}
+
+.navbar-container.active {
+  background-color: var(--light-color);
+  color: black;
 }
 
 .logo-container {
@@ -35,22 +46,55 @@
 .menu-list {
   display: flex;
   list-style: none;
+  text-align: center;
 }
 
 .menu-list-item {
   margin-right: 30px;
   letter-spacing: 0.04rem;
   font-size: 19px;
+  display: inline-block;
 }
 
 li.menu-list-item a {
+  display: block;
   text-decoration: none;
-  color: inherit;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 5px;
 }
 
-/*.menu-list-item.active {
-  font-weight: bold;
-}*/
+li.menu-list-item a,
+li.menu-list-item a:after,
+li.menu-list-item a:before {
+  transition: all .5s;
+}
+
+li.menu-list-item a:hover {
+  color: #555;
+}
+
+li.menu-list-item a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+
+li.menu-list-item a:hover:after {
+  width: 100%;
+}
+
+  /*.menu-list-item.active {
+    font-weight: bold;
+  }*/
 
 .right-container {
   flex: 2;
@@ -128,6 +172,10 @@ li.menu-list-item a {
   transform: rotate(135deg);
 }
 
+.search.active .searchInput:after {
+  background: black;
+}
+
 .searchInput > input {
   position: relative;
   top: -1px;
@@ -144,6 +192,11 @@ li.menu-list-item a {
   transition: width 0.5s;
 }
 
+.search.active .searchInput > input {
+  color: black;
+  border-color: black;
+}
+
 .searchInput > input::placeholder {
   color: #efefef;
   font-size: 15px;
@@ -151,6 +204,10 @@ li.menu-list-item a {
   opacity: 0;
   font-family: "Lacquer", cursive;
   transition: opacity 150ms ease-out;
+}
+
+.search.active .searchInput > input::placeholder {
+  color: black;
 }
 
 .searchInput > input:focus::placeholder,

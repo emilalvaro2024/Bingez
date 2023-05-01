@@ -30,15 +30,17 @@
                     </div>
                 {{/if}}
             </div>
-            <div class="list">
-                {{#each items}}
-                    <div class="item">
-                        <a href="/{{this.type}}/{{this.slug}}">
-                            <img src="/static/img/{{this.image}}" alt="{{this.title}}" />
-                        </a>
-                        <h4><a href="/{{this.type}}/{{this.slug}}">{{this.title}}</a></h4>
-                    </div>
-                {{/each}}
+            <div class="list-container">
+                <div class="list">
+                    {{#each items}}
+                        <div class="item">
+                            <a href="/{{this.type}}/{{this.slug}}">
+                                <img src="/static/img/{{this.image}}" alt="{{this.title}}" />
+                            </a>
+                            <h4><a href="/{{this.type}}/{{this.slug}}">{{this.title}}</a></h4>
+                        </div>
+                    {{/each}}
+                </div>
             </div>
             <div class="pagination">
 

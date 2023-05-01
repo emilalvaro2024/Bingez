@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lacquer&family=Open+Sans&family=Poppins:wght@300&family=Rubik:wght@700&family=ZCOOL+QingKe+HuangYou&display=swap");
 
+:root{
+  --light-color: #f2ebeb;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -214,7 +218,7 @@ body {
 } */
 
 .container.active {
-  background-color: white;
+  background-color: var(--light-color);
 }
 
 .featured-content.featured-1.active {
@@ -222,7 +226,7 @@ body {
           to bottom,
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0) 65%,
-          #ffffff
+          var(--light-color)
   ),
   url("/static/img/f-1.jpg");
 }
@@ -232,7 +236,7 @@ body {
           to bottom,
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0) 70%,
-          #ffffff
+          var(--light-color)
   ),
   url("/static/img/f-2.jpg");
 }
@@ -249,13 +253,7 @@ body {
   text-transform: uppercase;
 }
 
-.movie-list-title.active {
-  color: black;
-}
-
-.navbar-container.active {
-  background-color: white;
-
+.h1.active .movie-list-title {
   color: black;
 }
 
@@ -309,6 +307,10 @@ body {
   letter-spacing: 2px;
   /* border-bottom: 1px solid aqua; */
   transition: all 0.2s linear 0s;
+}
+
+.h1.active a.all{
+  color: black;
 }
 
 .h1 > a.all:before {

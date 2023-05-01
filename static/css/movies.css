@@ -13,12 +13,26 @@ body {
   height: 100vh;
 }
 
+.container {
+  flex: 1 1 auto;
+}
+
+.container.active {
+  background-color: var(--light-color);
+}
+
 .content-container {
   transition: margin-left 0.5s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .allmovies {
   padding: 15px 45px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 div.heading {
@@ -26,10 +40,15 @@ div.heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex: 0 1 auto;
 }
 
 div.heading > h2 {
   cursor: default;
+}
+
+div.heading.active > h2 {
+  color: black;
 }
 
 /* div.heading select {
@@ -56,20 +75,25 @@ div.heading select > option[disabled] {
   width: 10px;
   height: 6px;
   stroke-width: 2px;
-  stroke: #000000;
+  stroke: #fff;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
 }
+
+.heading.active .select svg {
+  stroke: black;
+}
 .select select {
   -webkit-appearance: none;
   padding: 7px 40px 7px 12px;
   width: 100%;
-  border: none;
+  border: #fff 1px solid;
+  color: #fff;
   outline: none;
   border-radius: 10px;
-  background: #fff;
+  background: #151515;
   box-shadow: 0 1px 3px -2px #9098a9;
   cursor: pointer;
   font-family: inherit;
@@ -77,10 +101,10 @@ div.heading select > option[disabled] {
   transition: all 150ms ease;
 }
 .select select:required:invalid {
-  color: #000000;
+  color: #fff;
 }
 .select select option {
-  color: #000000;
+  color: inherit;
 }
 .select select option[value=""][disabled] {
   display: none;
@@ -93,12 +117,23 @@ div.heading select > option[disabled] {
 .select select:hover + svg {
   stroke: #9098a9;
 }
+
+.heading.active select{
+  border: black 1px solid;
+  color: black!important;
+  background: var(--light-color);
+}
+
 .sprites {
   position: absolute;
   width: 0;
   height: 0;
   pointer-events: none;
   user-select: none;
+}
+
+.list-container {
+  flex: 1 1 auto;
 }
 
 .list {
@@ -108,18 +143,33 @@ div.heading select > option[disabled] {
 }
 
 .item {
-  margin: 10px;
+  margin: 10px 24px;
   box-sizing: border-box;
 }
 
 .item h4 {
-  margin-top: 1px;
-  margin-left: 5px;
+  margin-top: 7px;
+  margin-left: 21px;
+  color: #a1a1a1;
+  letter-spacing: 2px;
+  transition: color 200ms ease-in, text-shadow 200ms ease-in;
+}
+
+.item:hover h4 {
+  color: #fff;
+  text-shadow: 0 0 5px #03e9f4,
+  0 0 25px #03e9f4,
+  0 0 50px #03e9f4,
+  0 0 100px #03e9f4;
 }
 
 .item a {
   text-decoration: none;
-  color: #ffffffd9;
+  color: inherit;
+}
+
+.container.active .item a {
+  color: black;
 }
 
 .item img {
@@ -127,7 +177,26 @@ div.heading select > option[disabled] {
   width: auto;
   height: 218px;
   border-radius: 7px;
-  filter: drop-shadow(2px 4px 6px black);
+  /*filter: drop-shadow(2px 4px 6px black);*/
+  box-shadow: rgb(218 199 211 / 40%) 3px 3px, rgba(218, 199, 211, 0.3) 5px 5px, rgba(218, 199, 211, 0.2) 7px 7px, rgba(218, 199, 211, 0.1) 9px 9px, rgb(218 199 211 / 5%) 11px 11px;
+  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.item:hover img {
+  transform: translate(-14px, -14px);
+  box-shadow: rgb(218 199 211 / 40%) 5px 5px, rgba(218, 199, 211, 0.3) 10px 10px, rgba(218, 199, 211, 0.2) 15px 15px, rgba(218, 199, 211, 0.1) 20px 20px, rgb(218 199 211 / 5%) 25px 25px;
+}
+
+.container.active .item img {
+  box-shadow: rgb(44 44 44 / 40%) 3px 3px, rgba(44, 44, 44, 0.3) 5px 5px, rgba(44, 44, 44, 0.2) 7px 7px, rgba(44, 44, 44, 0.1) 9px 9px, rgb(44 44 44 / 5%) 11px 11px;
+}
+
+.container.active .item:hover img {
+  box-shadow: rgb(44 44 44 / 40%) 5px 5px, rgba(44, 44, 44, 0.3) 10px 10px, rgba(44, 44, 44, 0.2) 15px 15px, rgba(44, 44, 44, 0.1) 20px 20px, rgb(44 44 44 / 5%) 25px 25px;
+}
+
+.pagination {
+  flex: 0 1 auto;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -166,6 +235,10 @@ div.heading select > option[disabled] {
 
   div.heading > h2 {
     font-size: 26px;
+  }
+
+  .select select{
+    width: 88%;
   }
 
   .allmovies {
