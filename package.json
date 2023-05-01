@@ -2,7 +2,9 @@
   "name": "movie-website",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "debugDev": "set DEBUG=Bingez:* & nodemon start"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
