@@ -1,11 +1,11 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', false)
 
 // Database connection
 // mvst_data @ admin_mvst = mAfNP7BO5QTroFqV
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.awfkby1.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`, function () {
+    .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.awfkby1.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`, function () {
     console.log("connection successful");
 });
 
@@ -53,7 +53,7 @@ let videoDetailsSchema = new mongoose.Schema({
     }],
     views: Number,
     timestamp: { type: Date, default: Date.now },
-})
+}, { timestamps: true })
 const v_details = new mongoose.model('videos_detail', videoDetailsSchema)
 
 let ft_detailsSchema = new mongoose.Schema({
@@ -61,13 +61,13 @@ let ft_detailsSchema = new mongoose.Schema({
     image: String,
     desc: String,
     link: String,
-})
+}, { timestamps: true })
 let ft_details = new mongoose.model('featured_detail', ft_detailsSchema)
 
 let genreSchema = new mongoose.Schema({
     genre: String,
     slug: String,
-})
+}, { timestamps: true })
 let genre = new mongoose.model('genre', genreSchema)
 
 let actorSchema = new mongoose.Schema({
@@ -79,7 +79,7 @@ let actorSchema = new mongoose.Schema({
         image: String,
         link: String,
     }]
-})
+}, { timestamps: true })
 let actor = new mongoose.model('actor', actorSchema)
 
 module.exports = {
