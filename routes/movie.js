@@ -64,8 +64,20 @@ router.get(['/', '/page/:pageNum?'], async function (req, res) {
         if (pageNum > 1) showGenre = false;
         const loadFrom = (pageNum-1)*perPage;
         const loadTo = (pageNum*perPage)-1;
+
+        // check if theme session variable is set, if not then set to default dark
+        let theme;
+        if (req.session.theme){
+            theme = req.session.theme;
+        } else {
+            req.session.theme = "dark";
+            theme = "dark";
+        }
+        let isDark = theme === "dark";
+
         res.render('movies', {
             layout: "movies",
+            dark: isDark,
             css: "movies",
             type: "Movies",
             items: filteredMoviesList.slice(loadFrom, loadTo),

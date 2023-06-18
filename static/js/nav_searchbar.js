@@ -60,7 +60,7 @@ inputField.addEventListener("input", function () {
 //Toggle dark and light theme
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
-    ".container,.h1,.heading,.navbar-container,.sidebar,.left-menu-icon,.toggle,.featured-content,.search"
+    ".container,.h1,.heading,.navbar-container,.sidebar,.toggle,.featured-content,.search"
 );
 // let slidepgnn = document.querySelectorAll("ul.splide__pagination li button.splide__pagination__page");
 

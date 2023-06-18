@@ -1,5 +1,5 @@
 {
-  "name": "movie-website",
+  "name": "bingez_movie-website",
   "version": "1.0.0",
   "scripts": {
     "start": "node ./bin/www",
@@ -7,14 +7,15 @@
     "debugDev": "set DEBUG=Bingez:* & nodemon start"
   },
   "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.5",
-    "mongoose": "^6.3.2",
-    "nodemon": "^2.0.16",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "mongoose": "^6.3.2",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.16"
   }
 }

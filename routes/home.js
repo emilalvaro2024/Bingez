@@ -19,8 +19,20 @@ router.get('/', async function (req, res) {
     let ft_1 = await ft_details.findOne({section: 1}).lean()
     let ft_2 = await ft_details.findOne({section: 2}).lean()
     // console.log(ft_2[0])
+
+    // check if theme session variable is set, if not then set to default dark
+    let theme;
+    if (req.session.theme){
+        theme = req.session.theme;
+    } else {
+        req.session.theme = "dark";
+        theme = "dark";
+    }
+    let isDark = theme === "dark";
+
     res.render('index', {
         layout: 'home',
+        dark: isDark,
         movies,
         latest,
         trending,
