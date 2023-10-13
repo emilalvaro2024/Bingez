@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Scrollbar.initAll();
-const scrollbar = Scrollbar.init(document.querySelector("body"), {
+/*const scrollbar = Scrollbar.init(document.querySelector("body"), {
   // Momentum reduction damping factor, a float value between (0, 1), the lower the value is, the more smooth the scrolling will be (also the more paint frames).
-  damping: 0.04,
+  damping: 0.4,
 
   // Minimal size for scrollbar thumb.
   thumbMinSize: 5,
@@ -34,4 +34,4 @@ const scrollbar = Scrollbar.init(document.querySelector("body"), {
   // Whether allow upper scrollable content to continue scrolling when current scrollbar reaches edge.
   // When set to 'auto', it will be enabled on nested scrollbars, and disabled on first-class scrollbars.
   continuousScrolling: "auto",
-});
+});*/

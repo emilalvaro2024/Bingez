@@ -39,12 +39,29 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="watchbtn">
-                        <a
-                                href="{{nextPage}}"
-                                target="_blank"
-                                rel="noopener noreferrer external"
-                        ><img class="play" src="/static/img/play1.png" alt="play"/> Watch Now</a>
+                    <div class="watch_btn_group">
+                        <input id='watchButton' type='checkbox'>
+                        <label for='watchButton'>
+                            <img class="play" src="/static/img/play1.png" alt="play"/>
+                            Watch Now
+                        </label>
+                        <div class='modal'>
+                            <div class='content'>
+                                <div class="background"></div>
+                                <!-- The data-shaka-player-container tag will make the UI library place the controls in this div.
+                                     The data-shaka-player-cast-receiver-id tag allows you to provide a Cast Application ID that
+                                       the cast button will cast to; the value provided here is the sample cast receiver. -->
+                                <div id="vidCont" data-shaka-player-container style="max-width:40em" data-shaka-player-cast-receiver-id="07AEE832">
+                                    <!-- The data-shaka-player tag will make the UI library use this video element.
+                                         If no video is provided, the UI will automatically make one inside the container div. -->
+                                    <video autoplay data-shaka-player id="video" style="width:100%;height:100%"></video>
+                                </div>
+                                <div class="playBtn"><svg xmlns="http://www.w3.org/2000/svg" id="play" width="119.91" height="119.91"><path fill="#E74C3C" d="M58.8 10.8c-27.77 0-50.3 22.5-50.3 50.3 0 27.78 22.53 50.3 50.3 50.3 27.8 0 50.32-22.52 50.32-50.3 0-27.8-22.53-50.3-50.3-50.3zm0 97.97c-26.32 0-47.66-21.34-47.66-47.67 0-26.34 21.34-47.68 47.67-47.68 26.37 0 47.7 21.34 47.7 47.67 0 26.3-21.33 47.64-47.66 47.64z"/><path fill="#E74C3C" d="M58.8 21.12c-22.07 0-39.97 17.9-39.97 39.98s17.9 39.98 39.98 39.98c22.1 0 40-17.9 40-39.98s-17.9-39.98-40-39.98zm3.52 50.7L43.77 82.47l.04-21.37.07-21.37 18.5 10.72 18.5 10.72L62.3 71.82z"/></svg></div>
+                                <!--<div class="crossbtn">
+                                    <img width="48" height="48" src="https://img.icons8.com/sf-regular-filled/48/multiply.png" alt="multiply"/>
+                                </div>-->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,3 +82,4 @@
         </div>
     </div>
 </div>
+

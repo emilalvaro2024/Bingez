@@ -1,0 +1,137 @@
+/*watch now + modal css*/
+
+/* .watch_btn_group {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.watch_btn_group label {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    font-size: 19px;
+    white-space: nowrap;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.5s ease 0.5s;
+}
+
+.watch_btn_group .play {
+    filter: invert(1);
+    height: 60px;
+    width: 60px;
+    margin-right: 5px;
+}
+
+input#watchButton {
+    cursor: pointer;
+    height: 0;
+    opacity: 0;
+    width: 0;
+    position: absolute;
+    transition: opacity 500ms ease-in 510ms;
+}
+
+input#watchButton:focus {
+    outline: none;
+}
+
+input#watchButton:checked {
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 6;
+    -webkit-appearance: none;
+    width: 40px;
+    opacity: 1;
+}
+
+input#watchButton:checked + label {
+    color: #beb4b4;
+    transition: color 0.5s ease;
+}
+
+div.modal {
+    background: dodgerblue;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease 0.5s, height 0.5s ease;
+}
+
+input#watchButton:checked ~ .modal {
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+    transition: width 0.5s ease, height 0.5s ease 0.5s;
+}
+
+input#watchButton:checked::after,
+input#watchButton:checked::before {
+    border-top: 1px solid #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 100%;
+}
+
+input#watchButton:checked::after {
+    transform: rotate(-45deg);
+}
+
+.content {
+    color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+input#watchButton:checked ~ .modal .content {
+    color: #fff;
+    transition: color 0.5s ease 0.5s;
+}
+
+.background{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://imgnew.outlookindia.com/uploadimage/library/16_9/16_9_5/IMAGE_1689569320.webp);
+    background-size: cover;
+    background-position: center;
+    filter: none;
+    /*z-index: -1;*/
+    transition: filter 1100ms ease-in-out;
+}
+.background.blur{
+    filter: blur(14px);
+}
+#vidCont{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1100ms ease-in-out;
+}
+#vidCont.show{
+    opacity: 100%;
+    pointer-events: initial;
+}
+/*.crossbtn{
+  padding: 0.4rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+.crossbtn img{
+  filter: invert(0.9);
+}*/

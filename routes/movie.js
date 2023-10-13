@@ -92,6 +92,16 @@ router.get(['/', '/page/:pageNum?'], async function (req, res) {
 
 // define the movie detail page route
 router.get('/:pageLink', async function (req, res) {
+    // check if theme session variable is set, if not then set to default dark
+    let theme;
+    if (req.session.theme){
+        theme = req.session.theme;
+    } else {
+        req.session.theme = "dark";
+        theme = "dark";
+    }
+    let isDark = theme === "dark";
+
     let movieSlug = await v_details.findOne({type: "movie", slug: req.params.pageLink}).lean()
     // console.log(movieSlug)
     if (movieSlug !== null) {
@@ -109,6 +119,7 @@ router.get('/:pageLink', async function (req, res) {
             actors: movieSlug.actors,
             nextPage: movieSlug.nextPath,
             recommendations: movieSlug.recommendations,
+            dark: isDark
         })
     } else {
         res.status(404).send("Not Found")

@@ -14,6 +14,11 @@ body {
   background-color: #151515;
 }
 
+body.modalActive{
+  height: initial;
+  overflow: hidden;
+}
+
 .scroll-content {
   overflow-x: hidden;
 }
@@ -179,27 +184,6 @@ ul.actors_actress li:hover img {
 ul.actors_actress li:hover .actor-name {
   visibility: visible;
   transform: translateY(-57px);
-}
-
-/* .watchbtn {
-  display: flex;
-  justify-content: flex-end;
-} */
-
-.watchbtn a {
-  text-decoration: none;
-  color: white;
-  display: inline-flex;
-  align-items: center;
-  font-size: 19px;
-  white-space: nowrap;
-}
-
-.watchbtn .play {
-  filter: invert(1);
-  height: 60px;
-  width: 60px;
-  margin-right: 5px;
 }
 
 .sec-2 {

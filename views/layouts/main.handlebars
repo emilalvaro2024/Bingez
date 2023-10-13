@@ -54,6 +54,19 @@
 
     <!-- smooth-scrollbar -->
     <script defer src="/static/js/smooth-scrollbar.js"></script>
+    <script defer src="/static/js/plugins/overscroll.js"></script>
+
+    <!--watch now + modal css-->
+    <link rel="stylesheet" type="text/css" href="/static/css/watch_now_modal.css" />
+
+    <!-- Shaka Player ui compiled library: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/shaka-player.ui.min.js"></script>
+    <!-- Shaka Player ui compiled library default CSS: -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/controls.min.css" />
+
+    <!--play button-->
+    <link rel="stylesheet" type="text/css" href="/static/css/playButton.css" />
+    <script defer src="/static/js/playButton.js"></script>
 
     <title>Bingez - {{title}}</title>
 </head>
@@ -65,6 +78,9 @@
 <!-- custom script -->
 <script defer src="/static/js/scroll_sidebar.js"></script>
 <script defer src="/static/js/nav_searchbar.js"></script>
+<!--video player-->
+<script defer src="/static/js/videoPlayer.js"></script>
+<script defer src="/static/js/watch_now_modal.js"></script>
 {{#if seriesCss}}
     <script defer src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script defer src="/static/js/accordion.js"></script>
